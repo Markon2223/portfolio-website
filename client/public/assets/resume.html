@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markos Assefa - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f9fafb;
+            line-height: 1.6;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #0a2540 0%, #1e3a8a 100%);
+            border-radius: 12px;
+            padding: 30px;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-right: 30px;
+            border: 4px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        .name {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .title {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 0;
+            opacity: 0.9;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+        .section {
+            margin-bottom: 35px;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #0a2540;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            display: inline-block;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #0a2540, #3b82f6);
+            border-radius: 2px;
+        }
+        .details {
+            background: linear-gradient(145deg, #0a2540 0%, #1e3a8a 100%);
+            color: white;
+            padding: 30px;
+            float: right;
+            width: 28%;
+            box-sizing: border-box;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-left: 25px;
+        }
+        .main-content {
+            float: left;
+            width: calc(72% - 25px);
+            box-sizing: border-box;
+        }
+        .education-item, .internship-item {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid rgba(10, 37, 64, 0.2);
+            padding-bottom: 10px;
+        }
+        .education-item:last-child, .internship-item:last-child {
+            margin-bottom: 0;
+            border-left-color: transparent;
+        }
+        .education-item::before, .internship-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0a2540, #3b82f6);
+            border: 3px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .education-place {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #0a2540;
+            font-size: 18px;
+        }
+        .education-date {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 10px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        .education-date::before {
+            content: '📅';
+            margin-right: 8px;
+            font-size: 16px;
+        }
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        .contact-info h3, .links h3, .skills h3, .languages h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+        .contact-info h3::after, .links h3::after, .skills h3::after, .languages h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(90deg, #60a5fa, white);
+            border-radius: 2px;
+        }
+        .contact-info p, .links p {
+            line-height: 1.8;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .contact-icon {
+            margin-right: 10px;
+            font-size: 18px;
+            opacity: 0.8;
+        }
+        .skills-bar {
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin-bottom: 15px;
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        .skills-level {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        .skills-item {
+            margin-bottom: 20px;
+        }
+        .skills-item p {
+            font-weight: 500;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .skills-item p::after {
+            content: attr(data-level);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+        .clear {
+            clear: both;
+        }
+        ul {
+            padding-left: 18px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        a:hover {
+            opacity: 0.8;
+        }
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            background: rgba(10, 37, 64, 0.1);
+            color: #0a2540;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        .highlight {
+            background: linear-gradient(transparent 50%, rgba(59, 130, 246, 0.2) 50%);
+            padding: 0 2px;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .details {
+                background: linear-gradient(145deg, #0a2540 0%, #1e3a8a 100%) !important;
+                color: white !important;
+            }
+            .skills-level {
+                background: linear-gradient(90deg, #3b82f6, #60a5fa) !important;
+            }
+            .header {
+                background: linear-gradient(135deg, #0a2540 0%, #1e3a8a 100%) !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <div class="header">
+            <img src="profile.png" alt="Markos Assefa" class="profile-img">
+            <div>
+                <h1 class="name">Markos Assefa</h1>
+                <p class="title">Full Stack Web Developer</p>
+                <p style="margin-top: 8px; opacity: 0.9;">Creating impactful web experiences with modern technologies</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Profile</h2>
+            <p>I'm a passionate <span class="highlight">full-stack developer</span> with a drive for building innovative and scalable web solutions. With a <span class="highlight">Computer Science degree from St. Mary's University</span>, I combine strong technical knowledge with hands-on development experience.</p>
+            
+            <p>My expertise spans frontend and backend technologies, with particular strengths in:</p>
+            
+            <div style="display: flex; flex-wrap: wrap; margin: 15px 0;">
+                <span class="badge">JavaScript</span>
+                <span class="badge">React.js</span>
+                <span class="badge">Node.js</span>
+                <span class="badge">MongoDB</span>
+                <span class="badge">Express</span>
+                <span class="badge">HTML/CSS</span>
+                <span class="badge">UI/UX Design</span>
+                <span class="badge">MySQL</span>
+            </div>
+            
+            <p>I thrive on solving complex problems with clean, efficient code and am dedicated to creating intuitive, user-friendly applications that deliver exceptional experiences. Always eager to learn new technologies and expand my skillset, I approach each project with creativity, attention to detail, and commitment to excellence.</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <div class="education-place">Bachelor of Science in Computer Science</div>
+                <div class="education-date">MARCH 2021 - FEBRUARY 2025</div>
+                <p><strong>St. Mary's University</strong>, Addis Ababa, Ethiopia</p>
+                <p>Key areas of study:</p>
+                <div style="display: flex; flex-wrap: wrap; margin: 10px 0;">
+                    <span class="badge">Data Structures</span>
+                    <span class="badge">Algorithms</span>
+                    <span class="badge">Software Engineering</span>
+                    <span class="badge">Database Systems</span>
+                    <span class="badge">Web Development</span>
+                </div>
+            </div>
+            <div class="education-item">
+                <div class="education-place">Preparatory Education</div>
+                <div class="education-date">SEPTEMBER 2019 - JANUARY 2021</div>
+                <p><strong>Minilik Preparatory School</strong>, Addis Ababa, Ethiopia</p>
+                <p>Focus on Natural Sciences with excellent academic standing</p>
+            </div>
+            <div class="education-item">
+                <div class="education-place">Secondary Education</div>
+                <div class="education-date">SEPTEMBER 2016 - JUNE 2019</div>
+                <p><strong>Radical Academy</strong>, Addis Ababa, Ethiopia</p>
+            </div>
+            <div class="education-item">
+                <div class="education-place">Primary Education</div>
+                <div class="education-date">SEPTEMBER 2008 - JUNE 2016</div>
+                <p><strong>German Church School</strong>, Addis Ababa, Ethiopia</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="internship-item">
+                <div class="education-place">Web Developer</div>
+                <div class="education-date">JULY 2024 - SEPTEMBER 2024</div>
+                <p><strong>Amon IT Solution</strong>, Addis Ababa, Ethiopia</p>
+                
+                <p style="margin-top: 10px;"><strong>Key Responsibilities & Achievements:</strong></p>
+                <ul>
+                    <li>Designed and developed responsive web applications using <span class="highlight">React.js</span> and <span class="highlight">Node.js</span>, resulting in improved user engagement and satisfaction</li>
+                    <li>Integrated applications with <span class="highlight">MongoDB</span> for efficient database management, optimizing data retrieval and storage processes</li>
+                    <li>Collaborated with a cross-functional team in an <span class="highlight">Agile environment</span>, participating in daily stand-ups, sprint planning, and retrospectives</li>
+                    <li>Implemented modern UI/UX designs using <span class="highlight">JavaScript</span>, <span class="highlight">HTML5</span>, <span class="highlight">CSS</span>, and <span class="highlight">TailwindCSS</span> for enhanced visual aesthetics and user experience</li>
+                    <li>Participated in code reviews and implemented feedback, contributing to improved code quality and reduced technical debt</li>
+                    <li>Developed a secure, interactive web application with a modern frontend framework and intuitive user interface, which became a showcase project for the company</li>
+                </ul>
+                
+                <p style="margin-top: 10px;"><strong>Technologies Used:</strong></p>
+                <div style="display: flex; flex-wrap: wrap; margin: 10px 0;">
+                    <span class="badge">React.js</span>
+                    <span class="badge">Node.js</span>
+                    <span class="badge">MongoDB</span>
+                    <span class="badge">Express.js</span>
+                    <span class="badge">JavaScript</span>
+                    <span class="badge">HTML5/CSS3</span>
+                    <span class="badge">TailwindCSS</span>
+                    <span class="badge">Git</span>
+                    <span class="badge">Agile Methodology</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="details">
+        <div class="contact-info">
+            <h3>Contact</h3>
+            <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <span>Addis Ababa, Ethiopia</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📱</span>
+                <span>+251973094578</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">✉️</span>
+                <a href="mailto:markosassefa22@gmail.com" style="color: white; text-decoration: none;">markosassefa22@gmail.com</a>
+            </div>
+        </div>
+
+        <div class="links">
+            <h3>Connect</h3>
+            <div class="contact-item">
+                <span class="contact-icon">💬</span>
+                <a href="https://t.me/marko2223" style="color: white; text-decoration: none;">Telegram</a>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">💻</span>
+                <a href="https://github.com/Markon2223" style="color: white; text-decoration: none;">GitHub</a>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">👔</span>
+                <a href="https://www.linkedin.com/in/markos-assefa-3263b2289" style="color: white; text-decoration: none;">LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="skills">
+            <h3>Technical Skills</h3>
+            <p style="font-size: 14px; margin-bottom: 15px; opacity: 0.8;">Frontend, Backend & Database Technologies</p>
+            
+            <div class="skills-item">
+                <p data-level="90%">JavaScript</p>
+                <div class="skills-bar">
+                    <div class="skills-level" style="width: 90%;"></div>
+                </div>
+            </div>
+            
+            <div class="skills-item">
+                <p data-level="90%">HTML</p>
+                <div class="skills-bar">
+                    <div class="skills-level" style="width: 90%;"></div>
+                </div>
+            </div>
+            
+            <div class="skills-item">
+                <p data-level="85%">CSS</p>
+                <div class="skills-bar">
+                    <div class="skills-level" style="width: 85%;"></div>
+                </div>
+            </div>
+            
+            <div class="skills-item">
+                <p data-level="85%">React</p>
+                <div class="skills-bar">
+                    <div class="skills-level" style="width: 85%;"></div>
+                </div>
+            </div>
+            
+            <div class="skills-item">
+                <p data-level="85%">Node.js</p>
+                <div class="skills-bar">
+                    <div class="skills-level" style="width: 85%;"></div>
+                </div>
+            </div>
+            
+            <div class="skills-item">
+                <p data-level="85%">Express</p>
+                <div class="skills-bar">
+                    <div class="skills-level" style="width: 85%;"></div>
+                </div>
+            </div>
+            
+            <div class="skills-item">
+                <p data-level="80%">MongoDB</p>
+                <div class="skills-bar">
+                    <div class="skills-level" style="width: 80%;"></div>
+                </div>
+            </div>
+            
+            <div class="skills-item">
+                <p data-level="80%">MySQL</p>
+                <div class="skills-bar">
+                    <div class="skills-level" style="width: 80%;"></div>
+                </div>
+            </div>
+            
+            <div class="skills-item">
+                <p data-level="80%">Git</p>
+                <div class="skills-bar">
+                    <div class="skills-level" style="width: 80%;"></div>
+                </div>
+            </div>
+            
+            <div class="skills-item">
+                <p data-level="75%">C++</p>
+                <div class="skills-bar">
+                    <div class="skills-level" style="width: 75%;"></div>
+                </div>
+            </div>
+            
+            <div class="skills-item">
+                <p data-level="70%">PHP</p>
+                <div class="skills-bar">
+                    <div class="skills-level" style="width: 70%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="languages">
+            <h3>Languages</h3>
+            <p style="font-size: 14px; margin-bottom: 15px; opacity: 0.8;">Communication Skills</p>
+            
+            <div class="skills-item">
+                <p data-level="Native">Amharic</p>
+                <div class="skills-bar">
+                    <div class="skills-level" style="width: 100%;"></div>
+                </div>
+            </div>
+            
+            <div class="skills-item">
+                <p data-level="Fluent">English</p>
+                <div class="skills-bar">
+                    <div class="skills-level" style="width: 85%;"></div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <h3>Education</h3>
+                <p style="font-size: 14px; margin-bottom: 15px; opacity: 0.8;">Bachelor of Science in Computer Science</p>
+                <p style="margin-bottom: 5px;">St. Mary's University, Addis Ababa</p>
+                <p style="font-size: 14px; opacity: 0.8;">2021 - 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</body>
+</html>
