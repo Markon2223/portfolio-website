@@ -6,6 +6,10 @@
 [functions]
   directory = "netlify/functions"
 
+# Add this plugin to install function dependencies
+[[plugins]]
+  package = "@netlify/plugin-functions-install-core"
+
 # Redirect all requests to index.html for SPA routing
 [[redirects]]
   from = "/*"

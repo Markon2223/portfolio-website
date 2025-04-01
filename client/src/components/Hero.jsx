@@ -162,7 +162,7 @@ const Hero = () => {
                     fontFamily: 'inherit',
                   }}
                 >
-                  <TypedText text="&lt;FullStackWebDeveloper, ComputerScienceDegree, St.MarysUniversity /&gt;" delay={2.8} duration={2.5} />
+                  <TypedText text="&lt;FullStackWebDeveloper/&gt;" delay={2.8} duration={2.5} />
                 </Typography>
               </CodeLine>
               
