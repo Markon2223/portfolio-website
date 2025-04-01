@@ -27,23 +27,24 @@
    - Select your "portfolio-website" repository
 
 3. Configure build settings:
-   - Build command: `npm run build`
+   - Base directory: `client`
+   - Build command: `npm install && npm run build`
    - Publish directory: `dist`
-   - The base directory should be set to `client`
 
 4. Configure environment variables:
    - After deployment, go to Site settings > Environment variables
    - Add the following environment variables:
      - `EMAIL_USER`: markosassefa22@gmail.com
-     - `EMAIL_PASS`: (your app-specific password for Gmail SMTP)
+     - `EMAIL_PASS`: uphg gcur yeqf ogdk
 
-5. Function Dependencies Issue:
-   - The `netlify.toml` file has already been updated to include the plugin for installing function dependencies:
-   ```toml
-   [[plugins]]
-     package = "@netlify/plugin-functions-install-core"
-   ```
-   - This plugin automatically installs the dependencies specified in your Netlify functions' package.json files.
+5. Function Dependencies Setup:
+   - We've implemented multiple strategies to fix the function dependencies issue:
+     1. Added the `@netlify/plugin-functions-install-core` plugin in `netlify.toml`
+     2. Added `nodemailer` to the main project dependencies
+     3. Added a `postinstall` script to ensure function dependencies are installed
+     4. Modified the build command to explicitly run `npm install` before building
+   
+   - This comprehensive approach ensures that your Netlify functions will have access to all required dependencies.
 
 6. Deploy the site:
    - Click "Deploy site"
@@ -71,7 +72,10 @@ If the email functionality does not work after deployment:
 If you encounter issues with Netlify Functions:
 1. Go to the Netlify dashboard > Functions tab to check for any function errors
 2. Verify that your functions are using the correct path: `/.netlify/functions/contact`
-3. Make sure all required dependencies are installed correctly
+3. If you still face dependency issues, you can try:
+   - Clearing the Netlify cache and redeploying
+   - Checking the Netlify build logs for specific dependency errors
+   - Ensuring package.json files are correctly formatted
 
 ## Future Updates
 
