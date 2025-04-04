@@ -96,9 +96,6 @@ A modern, responsive, and interactive personal portfolio website built with the 
    - Set up environment variables on your hosting platform
    - Update the API base URL in the frontend code
 
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ## Contributing
 
