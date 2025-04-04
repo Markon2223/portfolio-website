@@ -23,6 +23,22 @@ const About = () => {
     threshold: 0.1,
   });
 
+  // Function to handle resume download
+  const handleDownloadResume = () => {
+    // Create an anchor element and set properties
+    const link = document.createElement('a');
+    // Use the file from the public directory
+    link.href = '/Resume.pdf';
+    link.download = 'Markos_Assefa_Resume.pdf';
+    document.body.appendChild(link);
+    
+    // Trigger click event to start download
+    link.click();
+    
+    // Cleanup
+    document.body.removeChild(link);
+  };
+
   // Staggered animation for text elements
   const staggerContainer = {
     animate: {
@@ -288,6 +304,7 @@ const About = () => {
                   variant="contained"
                   startIcon={<CloudDownload />}
                   size="large"
+                  onClick={handleDownloadResume}
                   sx={{
                     mt: 4,
                     background: (theme) =>
@@ -305,8 +322,6 @@ const About = () => {
                       boxShadow: (theme) => theme.customShadows?.medium || '0 8px 16px rgba(0, 0, 0, 0.2)',
                     },
                   }}
-                  href="/assets/resume.html"
-                  download="Markos_Assefa_Resume.html"
                 >
                   Download Resume
                 </Button>
